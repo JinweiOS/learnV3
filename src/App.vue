@@ -2,6 +2,7 @@
 // 导入lib
 import { ref, reactive, shallowRef } from 'vue'
 import { user } from '@/util/user.js'
+import {count as timeCount} from '@/util/time.js'
 // 组合式api
 const outRef = ref('外边也不错')
 
@@ -52,6 +53,9 @@ export default {
         }
       ]
     })
+    function controller() {
+      console.log('controller')
+    }
 
     const shallowRefTest = shallowRef({ name: 'shallowRefTest' })
 
@@ -64,7 +68,9 @@ export default {
       userList,
       shallowRefTest,
       outRef,
-      user
+      user,
+      timeCount,
+      controller
     }
   }
 }
@@ -83,6 +89,8 @@ export default {
   <div>{{ outRef }}</div>
 
   <div>{{ user.name }}</div>
+  <div>{{ timeCount }}</div>
+  <button v-on:click="controller">控制</button>
 </template>
 
 <style scoped>

@@ -6,7 +6,7 @@
 import { createApp } from 'vue'
 
 // 为什么js中可以引入vue文件？
-import App from './App.vue'
+import App from './Time.vue'
 
 const app = createApp(App)
 app.mount('#app')

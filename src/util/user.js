@@ -1,8 +1,9 @@
 import { ref } from 'vue'
-const user = ref({ name: 'outFileUser' })
+const user = { name: ref('outFileUser') }
 
 setTimeout(() => {
-  user.value.name = 'outFileUser2'
+  const { name } = user
+  name.value = 'outFileUser2'
 }, 2000)
 
 export { user }
