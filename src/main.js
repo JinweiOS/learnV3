@@ -1,7 +1,7 @@
 // 为什么js中可以引入css？
 // vite plugin(esbuild)
 // webpack loader('css')
-import './assets/main.css'
+// import './assets/main.css'
 
 import { createApp } from 'vue'
 
