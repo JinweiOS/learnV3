@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="parent" style="height: 100px; width: 100px; border: 2px solid red">
+    <button id="child">按钮</button>
+    <div id="childDiv" style="width: 60px; height: 60px; background-color: aqua;"></div>
+  </div>
+
+  <a id="link" href="https://www.baidu.com">点击跳转百度</a>
+
+  <script>
+    const parent = document.getElementById('parent')
+    const child = document.getElementById('child')
+    const childDiv = document.getElementById('childDiv')
+    const link = document.getElementById('link')
+    parent.addEventListener('click', () => {
+      console.log('parent')
+    })
+
+    child.addEventListener('click', (e) => {
+      console.log('child')
+      e.stopPropagation()
+    })
+
+    childDiv.addEventListener('click', () => {
+      console.log('childDiv')
+    })
+
+    link.addEventListener('click', (e) => {
+      e.preventDefault()
+      console.log('link')
+    })
+  </script>
+</body>
+
+</html>
