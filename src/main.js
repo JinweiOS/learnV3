@@ -6,7 +6,10 @@
 import { createApp } from 'vue'
 
 // 为什么js中可以引入vue文件？
-import App from './Watch.vue'
+import Main from './Main.vue'
+import ChildComp from '@/component/Child.vue'
 
-const app = createApp(App)
+const app = createApp(Main)
+// 全局注册
+app.component('ChildComp', ChildComp)
 app.mount('#app')
