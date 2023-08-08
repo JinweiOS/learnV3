@@ -8,7 +8,7 @@ export default {
     obj: Object
   },
   name: 'ChildComp',
-  setup(props) {
+  setup(props, ctx) {
     function handleClick(num, num2) {
       props.add(num, num2, 'child想要修改数据')
     }

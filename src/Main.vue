@@ -1,11 +1,13 @@
 <script>
 import PartComp from '@/component/Part.vue'
+import AttrComp from '@/component/Attr.vue'
 import {ref} from 'vue'
 export default {
   name: 'MainComp',
   // 局部注册
   components: {
-    'PartCom': PartComp
+    // 'PartCom': PartComp
+    AttrComp
   },
   setup() {
     const msgText = ref('hello world')
@@ -35,7 +37,16 @@ export default {
 <template>
   <!-- <child-comp></child-comp> -->
   <!-- <part-com :msg="msgText" :obj="msgObj"></part-com> -->
-  <child-comp :add-fn="add" :obj="msgObj"></child-comp>
+  <!-- <child-comp :add-fn="add" :obj="msgObj"></child-comp>
   <div>父亲：{{ msgObj.name }}</div>
   <div>父亲:{{ count }}</div>
+  <el-button>这是elementui提供的</el-button> -->
+  <attr-comp class="title-pjw" @click="() => console.log('p')"></attr-comp>
 </template>
+
+<style scoped>
+.title-pjw {
+  color: red !important;
+}
+</style>
+
