@@ -1,13 +1,16 @@
 <script>
 import PartComp from '@/component/Part.vue'
 import AttrComp from '@/component/Attr.vue'
+
+import TableComp from '@/component/Table.vue'
 import {ref} from 'vue'
 export default {
   name: 'MainComp',
   // 局部注册
   components: {
     // 'PartCom': PartComp
-    AttrComp
+    AttrComp,
+    TableComp
   },
   setup() {
     const msgText = ref('hello world')
@@ -41,6 +44,7 @@ export default {
   <div>父亲：{{ msgObj.name }}</div>
   <div>父亲:{{ count }}</div>
   <el-button>这是elementui提供的</el-button> -->
+  <table-comp></table-comp>
   <attr-comp class="title-pjw" @click="() => console.log('p')"></attr-comp>
 </template>
 
