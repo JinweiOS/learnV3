@@ -1,5 +1,5 @@
 <script>
-import { onMounted, ref, watch } from 'vue'
+import { ref, watch, inject } from 'vue'
 
 export default {
   props: ['msg'],
@@ -8,7 +8,6 @@ export default {
   setup(props, { emit }) {
     console.log('props', props.msg.people.msg)
     const msgLocal = ref('')
-
     function updateP() {
       emit('update', msgLocal.value)
     }
@@ -18,9 +17,12 @@ export default {
         msgLocal.value = props.msg.people.msg
       }
     )
+    // 依赖注入
+    const msgObj = inject('msgObj')
     return {
       msgLocal,
-      updateP
+      updateP,
+      msgObj
     }
   }
 }
@@ -30,4 +32,5 @@ export default {
   <!-- <div>{{ msg?.people?.msg }}</div> -->
   <input v-model="msgLocal" />
   <button @click="updateP">更新数据</button>
+  <span>{{ msgObj.name }}</span>
 </template>

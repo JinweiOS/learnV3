@@ -3,8 +3,10 @@ import AttrComp from '@/component/Attr.vue'
 
 import TableComp from '@/component/Table.vue'
 import CustomInput from '@/component/CustomInput.vue'
-import { ref } from 'vue'
-import AsyncData from './component/AsyncData.vue'
+import { ref, provide } from 'vue'
+import AsyncData from '@/component/AsyncData.vue'
+import PingComp from '@/component/Ping.vue'
+import PongComp from '@/component/Pong.vue'
 export default {
   name: 'MainComp',
   // 局部注册
@@ -13,7 +15,9 @@ export default {
     AttrComp,
     TableComp,
     CustomInput,
-    AsyncData
+    AsyncData,
+    PingComp,
+    PongComp
   },
   setup() {
     const msgText = ref('hello world')
@@ -21,6 +25,7 @@ export default {
       name: '哈哈哈哈'
     })
 
+    provide('msgObj', msgObj)
 
     const count = ref(0)
     const customInput = ref('0941')
@@ -103,6 +108,10 @@ export default {
   <div>父组件customInput2: {{ customInput2 }}</div>
   <table-comp :send-parent="setMainTableData" @submit-data="getData"></table-comp>
   <attr-comp class="title-pjw" @click="() => console.log('p')"></attr-comp>
+  <div>
+    <ping-comp></ping-comp>
+    <pong-comp></pong-comp>
+  </div>
 </template>
 
 <style scoped>
