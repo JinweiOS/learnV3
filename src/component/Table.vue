@@ -1,7 +1,8 @@
 <script>
 import { ref } from 'vue'
 export default {
-  emits: ['submit'],
+  props: ['sendParent'],
+  emits: ['submitData'],
   name: 'TableComp',
   setup(props, { emit }) {
     const tableData = ref([
@@ -33,7 +34,8 @@ export default {
     }
 
     function callback() {
-      emit('submit', {data: tableData.value})
+      emit('submitData', {data: tableData.value})
+      props.sendParent(tableData.value)
     }
 
     return {
